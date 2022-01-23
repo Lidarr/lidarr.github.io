@@ -47,7 +47,7 @@
                     <li><a href=#features><i class="fas fa-star"></i> FEATURES</a></li>
                     <li><a href=#download><i class="fas fa-download"></i> DOWNLOAD</a></li>
                     <li><a href=#support><i class="fas fa-question-circle"></i> SUPPORT</a></li>
-                    <li><a href=https://opencollective.com/Lidarr><i class="fas fa-heart"></i> DONATE</a></li>
+                    <li><a href=/donate><i class="fas fa-heart"></i> DONATE</a></li>
                     <li><a href=https://github.com/Lidarr/Lidarr target=_blank><i class="fab fa-github-alt"></i> GITHUB</a></li>
                 </ul>
             </div>
@@ -631,13 +631,18 @@ sudo systemctl enable --now Lidarr</code></pre>
     </footer>
     <script src=//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>
     <script src=//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js></script>
-    <script src=js/tab-loader.js?v=655e3ec48fc66ddfdd175b4b933e1063></script>
+    <script src=js/tab-loader.js?v=5a66d54eb3de3529f67381a6ff983e99></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
-    <script src=js/theme.js?v=85693f7f35c872717ee514c10ca38fdc></script>
+    <script src=js/theme.js?v=453b4ff1a4f41c49315a28f79aa5ea83></script>
     <script type=text/javascript src=js/index-slider.js?v=072006930bd52788bb7ab0a7d16861f7></script>
+    <script type=text/javascript>
+        if (window.location.hash.toLocaleLowerCase() === "#donate") {
+            window.location.replace("https://lidarr.audio/donate");
+        }
+    </script>
 </body>
 
 </html>
