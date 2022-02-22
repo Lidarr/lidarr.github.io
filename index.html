@@ -16,7 +16,7 @@
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet type=text/css href=//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
-    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=733258503fb3cf5828de7332f1b0228d>
+    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=0032cb25c1f3202a92ff30daf9c072d5>
     <link rel=stylesheet type=text/css href=https://use.fontawesome.com/releases/v5.6.3/css/all.css integrity=sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/ crossorigin=anonymous>
     <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css>
     <link rel=stylesheet type=text/css href=css/theme.css?v=f719053e3cfe4c1db5d57d58fd0d7650>
@@ -183,6 +183,12 @@
                         </a>
                     </li>
                     <li class=nav-item>
+                        <a class=nav-link data-toggle=tab href=#downloads-v1-bsd>
+                            <i class="fab fa-freebsd"></i>
+                            BSD
+                        </a>
+                    </li>
+                    <li class=nav-item>
                         <a class=nav-link data-toggle=tab href=#downloads-v1-other>
                             <i class="fas fa-ellipsis-v"></i>
                             &nbsp;&nbsp;Others
@@ -193,38 +199,17 @@
                     <div class="tab-pane fade active in" id=downloads-v1-windows role=tabpanel>
                         <dl class=install-steps>
                             <dt>
-                                Introduction
+                                Installation
                             </dt>
                             <dd>
-                                <p>Lidarr is supported natively on Windows. Lidarr can be installed on Windows as Windows Service or system tray application.</p>
                                 <p>
-                                    A Windows Service runs even when the user is not logged in, but special care must be taken since Windows Services cannot access network drives (X:\ mapped drives) without special configuration steps.<br>
-                                    Additionally the Windows Service runs under the 'Local Service' account, by default this account does not have permissions to access your user's home directory unless permissions have been assigned manually. This is particularly relevant when using download clients that are configured to download to your home directory.<br>
-                                    It's therefore advisable to install Lidarr as a system tray application if the user can remain logged in. The option to do so is provided during the installer.
+                                    Please see our Servarr Wiki for installation instructions.
+                                    <a href=https://wiki.servarr.com/lidarr/installation#windows>Link</a>
                                 </p>
-                                <div class="alert alert-warning">
-                                    Windows versions are limited for support to those currently supported by Microsoft, others may work but this is an unsupported configuration.
+                                <div class="alert alert-info">
+                                    <h4 class=alert-heading>Lidarr v0.8 migration</h4>
+                                    Lidarr v1 will convert any existing v0.8 directory automatically on startup.
                                 </div>
-                            </dd>
-                            <dt>
-                                <span class=step>1</span>
-                                Install Lidarr
-                            </dt>
-                            <dd>
-                                <p>Download the Windows Installer with the following link and execute it.</p>
-                                <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x64&installer=true>Download Windows x64 Installer</a>
-                                <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=windows&runtime=netcore&arch=x86&installer=true>Download Windows x86 Installer</a>
-                            </dd>
-                            <dt>
-                                <span class=step>2</span>
-                                View Lidarr
-                            </dt>
-                            <dd>
-                                <p>
-                                    Browse to
-                                    <code>http://localhost:8686</code>
-                                    to start using Lidarr.
-                                </p>
                             </dd>
                         </dl>
                         <div class=install-alternatives>
@@ -269,11 +254,18 @@
                                         <dd>
                                             <p>
                                                 The Arch Linux User Repository offers a
-                                                <a href=https://aur.archlinux.org/packages/Lidarr/>Lidarr</a>
+                                                <a href=https://aur.archlinux.org/packages/lidarr/>lidarr</a>
                                                 package that can be installed manually
                                                 or using your favorite
                                                 <a href=https://wiki.archlinux.org/index.php/AUR_helpers>AUR helper</a>.
                                             </p>
+                                            <div class="alert alert-info">
+                                                <h4 class=alert-heading>Lidarr v0.8 migration</h4>
+                                                The existing lidarr AUR packages already used
+                                                <code>/var/lib/lidarr</code>
+                                                to store the Lidarr database.
+                                                Lidarr v1 will convert that directory automatically on startup.
+                                            </div>
                                         </dd>
                                         <dt>
                                             <span class=step>1</span>
@@ -281,15 +273,15 @@
                                         </dt>
                                         <dd>
                                             <p>
-                                                An aur helper can install Lidarr and its dependencies easily, or follow the
+                                                An aur helper can install lidarr and its dependencies easily, or follow the
                                                 <a href=https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages>AUR Installing Packages</a>
                                                 wiki for manual installation.
                                             </p>
                                             <p>
                                                 For example, to use
                                                 <a href=https://github.com/Jguer/yay>yay</a>
-                                                to install the Lidarr package:
-                                            <pre><code class=bash>yay -S Lidarr</code></pre>
+                                                to install the lidarr package:
+                                            <pre><code class=bash>yay -S lidarr</code></pre>
                                             </p>
                                         </dd>
                                         <dt>
@@ -298,7 +290,7 @@
                                         </dt>
                                         <dd>
                                             <pre><code class=bash>sudo systemctl daemon-reload
-sudo systemctl enable --now Lidarr</code></pre>
+sudo systemctl enable --now lidarr</code></pre>
                                         </dd>
                                         <dt>
                                             <span class=step>3</span>
@@ -319,7 +311,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                                             <h5>Manual Install</h5>
                                             <p>
                                                 It is possible to install Lidarr manually from upstream using the
-                                                <a href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
+                                                <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
                                             </p>
                                             <h5>Docker container</h5>
                                             <p>
@@ -337,28 +329,33 @@ sudo systemctl enable --now Lidarr</code></pre>
                                         </dt>
                                         <dd>
                                             <p>
-                                                The community has put together an
-                                                <a href=https://wiki.servarr.com/Lidarr_Installation#Debian.2FUbuntu>Installation Guide</a>
-                                                to help you install this on Debian or Ubuntu.
+                                                Please see our Servarr Wiki for installation instructions.
+                                                <a href=https://wiki.servarr.com/lidarr/installation#linux>Link</a>
                                             </p>
+                                            <div class="alert alert-info">
+                                                <h4 class=alert-heading>Lidarr v0.8 migration</h4>
+                                                Lidarr v1 will convert any existing v0.8 directory automatically on startup.
+                                            </div>
                                         </dd>
                                     </dl>
                                 </div>
                                 <div class="tab-pane fade" id=downloads-v1-linux-other role=tabpanel>
                                     <div class=install-description>
-                                        <div class="alert alert-info">Please contact us if you wish to port Lidarr for any other distribution that the ones already listed.</div>
+                                        <div class="alert alert-info">
+                                            Please contact us if you wish to port Lidarr for any other distribution that the ones already listed.<br>
+                                        </div>
                                         <p>Generic .tar.gz downloads are available for linux, but dependencies, installation and permissions will need to be done manually.</p>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux x64 (netcore)</a>
+                                            <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux x64 (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm>Download Linux arm (netcore)</a>
+                                            <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm>Download Linux arm (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64>Download Linux arm64 (netcore)</a>
+                                            <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64>Download Linux arm64 (netcore)</a>
                                         </div>
                                         <div>
-                                            <a class="btn btn-Lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linuxmusl&runtime=netcore&arch=x64>Download Linux Musl x64 (netcore)</a>
+                                            <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linuxmusl&runtime=netcore&arch=x64>Download Linux Musl x64 (netcore)</a>
                                         </div>
                                     </div>
                                 </div>
@@ -372,13 +369,20 @@ sudo systemctl enable --now Lidarr</code></pre>
                             </dt>
                             <dd>
                                 <p>The easiest way to install Lidarr on macOS is to use the App archive with the steps described below.</p>
+                                <div class="alert alert-info">
+                                    <h4 class=alert-heading>Lidarr v0.8 migration</h4>
+                                    The Lidarr v1 package will attempt to automatically migrate an existing Lidarr v0.8 database.
+                                    Lidarr v0.2 used the user's home directory
+                                    <code>~/.config/Lidarr</code>
+                                    to store the application data which v1 also uses.<br>
+                                </div>
                             </dd>
                             <dt>
                                 <span class=step>1</span>
                                 Download App package
                             </dt>
                             <dd>
-                                <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64&installer=true>Download macOS App</a>
+                                <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64&installer=true>Download macOS App</a>
                             </dd>
                             <dt>
                                 <span class=step>2</span>
@@ -386,7 +390,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                             </dt>
                             <dd>
                                 <p>Open the archive and drag the Lidarr icon to your Application folder.</p>
-                                <div class="alert alert-warning">Lidarr v0.8+ is not compatible with OSX versions < 10.13 due to netcore compatability.</div>
+                                <div class="alert alert-warning">Lidarr v1 is not compatible with OSX versions < 10.13 (High Sierra) due to netcore incompatibilities.</div>
                             </dd>
                             <dt>
                                 <span class=step>3</span>
@@ -394,7 +398,6 @@ sudo systemctl enable --now Lidarr</code></pre>
                             </dt>
                             <dd>
                                 <p>Open Lidarr.app in your Application folder.</p>
-                                <div class="alert alert-info">During startup it may ask you to install the Mono Runtime if an appropriate version is not already installed.</div>
                             </dd>
                             <dt>
                                 <span class=step>4</span>
@@ -414,7 +417,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <h5>Manual Install</h5>
                                 <p>
                                     It is possible to install Lidarr manually using the
-                                    <a href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64>.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
+                                    <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64>.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
                                 </p>
                                 <h5>Docker container</h5>
                                 <p>
@@ -434,11 +437,6 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     </a>
                                 </li>
                                 <li class=nav-item>
-                                    <a class=nav-link data-toggle=pill href=#downloads-v1-nas-qnap>
-                                        QNAP
-                                    </a>
-                                </li>
-                                <li class=nav-item>
                                     <a class=nav-link data-toggle=pill href=#downloads-v1-nas-other>
                                         <i class="fas fa-ellipsis-v"></i>
                                         &nbsp;&nbsp;Others
@@ -448,22 +446,18 @@ sudo systemctl enable --now Lidarr</code></pre>
                             <div class=tab-content id=download-v1-nas-tabcontent>
                                 <div class="tab-pane fade active in" id=downloads-v1-nas-synology role=tabpanel>
                                     <div class="alert alert-info">
-                                        A package and installation instructions are provided by SynoCommunity at:
-                                        <a href=https://synocommunity.com/package/Lidarr>https://synocommunity.com/package/Lidarr</a>.
+                                        A NAS package and installation instructions are provided by SynoCommunity at:
+                                        <a href=https://synocommunity.com/package/lidarr>https://synocommunity.com/package/lidarr</a>.
                                         Please note that the SynoCommunity typically has signifcant lag in providing updated packages, thus you may want to check out Docker.
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id=downloads-v1-nas-qnap role=tabpanel>
-                                    <div class="alert alert-info">
-                                        The Lidarr v0.7 Qnap port was maintained by the Qnap forum community.<br>
-                                        Please contact us if you wish to maintain a v0.8 package so that we can include the appropriate install instructions.
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id=downloads-v1-nas-other role=tabpanel>
                                     <div class=install-description>
-                                        <div class="alert alert-info">Please contact us if you wish to port Lidarr for any other nas that the ones already listed.</div>
+                                        <div class="alert alert-info">
+                                            Please contact us if you wish to port Lidarr for any other nas that the ones already listed.<br>
+                                        </div>
                                         <p>A generic download is available for linux, but dependencies, installation, and permissions will need to be done manually.</p>
-                                        <a class="btn btn-Lidarr" href=https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux .tar.gz</a>
+                                        <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64>Download Linux .tar.gz</a>
                                     </div>
                                 </div>
                             </div>
@@ -479,6 +473,13 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     The Lidarr team does not offer an official Docker image. However, a number of third parties have created and maintain their own.<br>
                                     These instructions provide generic guidance that should apply to any Lidarr Docker image.
                                 </p>
+                                <div class="alert alert-info">
+                                    <h4 class=alert-heading>Lidarr v0.8 migration</h4>
+                                    Most docker containers use
+                                    <code>/config</code>
+                                    volume to mount the data directory and supply that path to Lidarr as parameter.
+                                    Lidarr v1 will convert the given directory on startup if a Lidarr v0.8 database is found.
+                                </div>
                             </dd>
                             <dt>
                                 <span class=step>1</span>
@@ -489,12 +490,12 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <p>
                                     There are two common problems with Docker volumes: Paths that differ between the Lidarr and download client container and paths that prevent fast moves and hard links.<br>
                                     The first is a problem because the download client will report a download's path as
-                                    <code>/torrents/Some.Artist/</code>, but in the Lidarr container that might be at
-                                    <code>/downloads/Some.Artist/</code>. The second is a performance issue and causes problems for seeding torrents. Both problems can be solved with well planned, consistent paths.
+                                    <code>/torrents/My.Music.2018/</code>, but in the Lidarr container that might be at
+                                    <code>/downloads/My.Music.2018/</code>. The second is a performance issue and causes problems for seeding torrents. Both problems can be solved with well planned, consistent paths.
                                 </p>
                                 <p>
                                     Most Docker images suggest paths like
-                                    <code>/music</code>
+                                    <code>/musics</code>
                                     and
                                     <code>/downloads</code>. This causes slow moves and doesn't allow hard links because they
                                     are considered two different file systems
@@ -505,8 +506,8 @@ sudo systemctl enable --now Lidarr</code></pre>
                                     <i>inside</i>
                                     the containers, such as
                                     <code>/data</code>.
-                                    Your Music would be in
-                                    <code>/data/Music</code>, torrents in
+                                    Your Musics would be in
+                                    <code>/data/Musics</code>, torrents in
                                     <code>/data/downloads/torrents</code>
                                     and/or usenet downloads in
                                     <code>/data/downloads/usenet</code>.
@@ -522,7 +523,7 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <p>
                                     <i>
   For a more detailed explanation of these issues, see
-        <a href=https://wiki.servarr.com/Docker_Guide>The Best Docker Setup and Docker Guide</a>
+        <a href=https://wiki.servarr.com/docker-guide>The Best Docker Setup and Docker Guide</a>
         wiki article.
       </i>
                                 </p>
@@ -538,28 +539,28 @@ sudo systemctl enable --now Lidarr</code></pre>
                                 <ul>
                                     <li>
                                         <h5>
-                                            <a href=ghcr.io/hotio/lidarr/release>ghcr.io/hotio/lidarr:release</a>
+                                            <a href=https://hotio.dev/containers/lidarr/>hotio/lidarr:release</a>
                                         </h5>
                                         <p>
                                             <a href=https://hotio.dev>hotio</a>
                                             doesn't specify any default volumes, besides
-                                            <code>/config</code>. Images are automatically updated 2x in 1 hour if upstream changes are found.
+                                            <code>/config</code>. Images are automatically updated multiple times in an hour if upstream changes are found. Hotio also builds our Pull Requests which may be useful for testing.
                                             Read the
-                                            <a href=https://hotio.dev/containers/Lidarr>instructions</a>
+                                            <a href=https://hotio.dev/containers/lidarr>instructions</a>
                                             on how to install the image.
                                         </p>
                                     </li>
                                     <li>
                                         <h5>
-                                            <a href=ghcr.io/linuxserver/lidarr/latest>ghcr.io/linuxserver/lidarr:latest</a>
+                                            <a href=https://docs.linuxserver.io/images/docker-lidarr>lscr.io/linuxserver/lidarr:latest</a>
                                         </h5>
                                         <p>
-                                            <a href=https://www.linuxserver.io>linuxserver.io</a>
+                                            <a href=https://docs.linuxserver.io/images/docker-lidarr>linuxserver.io</a>
                                             is one of the most prolific and popular Docker image maintainers. They also maintain images for most of the popular download clients as well.
-                                            LinuxServer specifies a couple of default volumes such as
-                                            <code>/music</code>
+                                            LinuxServer specifies a couple of optional default volumes such as
+                                            <code>/musics</code>
                                             and
-                                            <code>/downloads</code>. Our recommendation is to use a single volume for the data, as mentioned above.
+                                            <code>/downloads</code>. The default volumes are not optimal nor recommended. Our recommendation is to use a single volume for the data, as mentioned above.
                                         </p>
                                     </li>
                                 </ul>
@@ -567,10 +568,24 @@ sudo systemctl enable --now Lidarr</code></pre>
                             </dd>
                         </dl>
                     </div>
+                    <div class="tab-pane fade" id=downloads-v1-bsd role=tabpanel>
+                        <dl class=install-steps>
+                            <dt>
+                                Installation
+                            </dt>
+                            <dd>
+                                <p>
+                                    The Lidarr team provides
+                                    <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=bsd&arch=x64&runtime=netcore>builds for BSD and the BSD Community creates the Port</a>.<br>
+                                    Please see our Servarr Wiki for installation instructions.
+                                    <a href=https://wiki.servarr.com/lidarr/installation#freebsd>Link</a>
+                                </p>
+                            </dd>
+                        </dl>
+                    </div>
                     <div class="tab-pane fade" id=downloads-v1-other role=tabpanel>
                         <div class="alert alert-info">
                             Please contact us if you wish to port Lidarr for any other platform that the ones already listed.<br>
-                            We prefer to coordinate the port.
                         </div>
                     </div>
                 </div>
@@ -637,7 +652,7 @@ sudo systemctl enable --now Lidarr</code></pre>
         hljs.initHighlightingOnLoad();
     </script>
     <script src=js/theme.js?v=453b4ff1a4f41c49315a28f79aa5ea83></script>
-    <script type=text/javascript src=js/index-slider.js?v=072006930bd52788bb7ab0a7d16861f7></script>
+    <script type=text/javascript src=js/index-slider.js?v=48ba37f65a8c9499e4833ad1924fccb7></script>
     <script type=text/javascript>
         if (window.location.hash.toLocaleLowerCase() === "#donate") {
             window.location.replace("https://lidarr.audio/donate");
