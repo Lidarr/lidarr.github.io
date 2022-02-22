@@ -2,28 +2,34 @@
   <install-step title="Introduction">
     <p>
       The Arch Linux User Repository offers a
-      <a href="https://aur.archlinux.org/packages/Lidarr/">Lidarr</a>
+      <a href="https://aur.archlinux.org/packages/lidarr/">lidarr</a>
       package that can be installed manually
       or using your favorite
       <a href="https://wiki.archlinux.org/index.php/AUR_helpers">AUR helper</a>.
     </p>
+    <migration-alert>
+      The existing lidarr AUR packages already used
+      <code>/var/lib/lidarr</code>
+      to store the Lidarr database.
+      Lidarr v1 will convert that directory automatically on startup.
+    </migration-alert>
   </install-step>
   <install-step num="1" title="Install Lidarr">
     <p>
-      An aur helper can install Lidarr and its dependencies easily, or follow the
+      An aur helper can install lidarr and its dependencies easily, or follow the
       <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages">AUR Installing Packages</a>
       wiki for manual installation.
     </p>
     <p>
       For example, to use
       <a href="https://github.com/Jguer/yay">yay</a>
-      to install the Lidarr package:
-      <pre><code class="bash">yay -S Lidarr</code></pre>
+      to install the lidarr package:
+      <pre><code class="bash">yay -S lidarr</code></pre>
     </p>
   </install-step>
   <install-step num="2" title="Start Lidarr">
     <pre><code class="bash">sudo systemctl daemon-reload
-sudo systemctl enable --now Lidarr</code></pre>
+sudo systemctl enable --now lidarr</code></pre>
   </install-step>
   <install-step num="3" title="View Lidarr">
     <p>
@@ -38,7 +44,7 @@ sudo systemctl enable --now Lidarr</code></pre>
   <h5>Manual Install</h5>
   <p>
     It is possible to install Lidarr manually from upstream using the
-    <a href="https://Lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64">.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
+    <a href="https://lidarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64">.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
   </p>
   <h5>Docker container</h5>
   <p>
