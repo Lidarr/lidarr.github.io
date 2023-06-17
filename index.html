@@ -16,7 +16,7 @@
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet type=text/css href=//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
-    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=733258503fb3cf5828de7332f1b0228d>
+    <link rel=stylesheet type=text/css href=css/bootstrap-overrides.css?v=0032cb25c1f3202a92ff30daf9c072d5>
     <link rel=stylesheet type=text/css href=https://use.fontawesome.com/releases/v5.6.3/css/all.css integrity=sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/ crossorigin=anonymous>
     <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css>
     <link rel=stylesheet type=text/css href=css/theme.css?v=f719053e3cfe4c1db5d57d58fd0d7650>
@@ -382,7 +382,12 @@ sudo systemctl enable --now lidarr</code></pre>
                                 Download App package
                             </dt>
                             <dd>
-                                <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64&installer=true>Download macOS App</a>
+                                <div>
+                                    <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64&installer=true>Download Intel macOS App</a>
+                                </div>
+                                <div>
+                                    <a class="btn btn-lidarr" href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=arm64&installer=true>Download Arm macOS App</a>
+                                </div>
                             </dd>
                             <dt>
                                 <span class=step>2</span>
@@ -417,7 +422,7 @@ sudo systemctl enable --now lidarr</code></pre>
                                 <h5>Manual Install</h5>
                                 <p>
                                     It is possible to install Lidarr manually using the
-                                    <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64>.tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
+                                    <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=x64>Intel .tar.gz download</a> or <a href=https://lidarr.servarr.com/v1/update/master/updatefile?os=osx&runtime=netcore&arch=arm64>Arm .tar.gz download</a>. However in that case you must manually deal with dependencies, installation and permissions.
                                 </p>
                                 <h5>Docker container</h5>
                                 <p>
@@ -619,13 +624,6 @@ sudo systemctl enable --now lidarr</code></pre>
                         <p>Track bugs and features for the things that matter to you.</p>
                     </div>
                 </a>
-                <a class=col-sm-3 href=https://www.reddit.com/r/Lidarr target=_blank>
-                    <div class=text>
-                        <i class="fab fa-reddit-alien fa-2x"></i>
-                        <h4>Lidarr subreddit</h4>
-                        <p>Discuss Lidarr and talk to other users.</p>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
@@ -652,7 +650,7 @@ sudo systemctl enable --now lidarr</code></pre>
         hljs.initHighlightingOnLoad();
     </script>
     <script src=js/theme.js?v=453b4ff1a4f41c49315a28f79aa5ea83></script>
-    <script type=text/javascript src=js/index-slider.js?v=072006930bd52788bb7ab0a7d16861f7></script>
+    <script type=text/javascript src=js/index-slider.js?v=48ba37f65a8c9499e4833ad1924fccb7></script>
     <script type=text/javascript>
         if (window.location.hash.toLocaleLowerCase() === "#donate") {
             window.location.replace("https://lidarr.audio/donate");
